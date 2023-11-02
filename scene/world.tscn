@@ -1,0 +1,29 @@
+[gd_scene load_steps=7 format=3 uid="uid://cvae24277xr7w"]
+
+[ext_resource type="Script" path="res://scripts/fsm/StateMashine.cs" id="1_r3p4o"]
+[ext_resource type="Script" path="res://scripts/fsm/PlayerTurnState.cs" id="2_k4wg2"]
+[ext_resource type="Script" path="res://scripts/fsm/BattleStartState.cs" id="2_ulmwl"]
+[ext_resource type="Script" path="res://scripts/fsm/EnemyTurnState.cs" id="3_ae0w0"]
+[ext_resource type="Script" path="res://scripts/fsm/BattleEndState.cs" id="5_yudvj"]
+[ext_resource type="Script" path="res://scripts/cards/CardBase.cs" id="7_ojxeq"]
+
+[node name="World" type="Node2D"]
+
+[node name="Battle_FSM" type="Node" parent="."]
+script = ExtResource("1_r3p4o")
+initialState = NodePath("Battle_Start")
+
+[node name="Battle_Start" type="Node" parent="Battle_FSM"]
+script = ExtResource("2_ulmwl")
+
+[node name="Player_Turn" type="Node" parent="Battle_FSM"]
+script = ExtResource("2_k4wg2")
+
+[node name="Enemy_Turn" type="Node" parent="Battle_FSM"]
+script = ExtResource("3_ae0w0")
+
+[node name="Battle_End" type="Node" parent="Battle_FSM"]
+script = ExtResource("5_yudvj")
+
+[node name="BaseCard" type="Node2D" parent="."]
+script = ExtResource("7_ojxeq")
