@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Adth8WMnVyHPSUyYHedMtZRiiGHbavBjvkwcoVqKDp+MkCtImZkhVNrSnk0jURSRXtecpS4IVia+54S4FSecIw==",
+  "dgSpecHash": "E/Jt8fByBxyib4meeU4lIsbcM2mE3rEqJGmKDm7iVR5ZDJfdPwHr88nb3CPRRUmaDTEX4kON+FgReAlPGLQoIg==",
   "success": true,
-  "projectFilePath": "C:\\USERS\\ALEKS\\ONEDRIVE\\РОБОЧИЙ СТІЛ\\SPACECARD\\Space Card.csproj",
+  "projectFilePath": "C:\\Users\\aleks\\OneDrive\\Робочий стіл\\SpaceCard\\Space-Card\\Space Card.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\aleks\\.nuget\\packages\\godot.sourcegenerators\\4.1.1\\godot.sourcegenerators.4.1.1.nupkg.sha512",
     "C:\\Users\\aleks\\.nuget\\packages\\godotsharp\\4.1.1\\godotsharp.4.1.1.nupkg.sha512",

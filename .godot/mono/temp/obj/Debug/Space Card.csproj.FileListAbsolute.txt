@@ -15,3 +15,20 @@ C:\Users\aleks\OneDrive\Робочий стіл\SpaceCard\.godot\mono\temp\obj\D
 C:\Users\aleks\OneDrive\Робочий стіл\SpaceCard\.godot\mono\temp\obj\Debug\Space Card.pdb
 C:\Users\aleks\OneDrive\Робочий стіл\SpaceCard\.godot\mono\temp\obj\Debug\Space Card.genruntimeconfig.cache
 C:\Users\aleks\OneDrive\Робочий стіл\SpaceCard\.godot\mono\temp\obj\Debug\ref\Space Card.dll
+C:\Users\aleks\OneDrive\Робочий стіл\SpaceCard\Space-Card\.godot\mono\temp\bin\Debug\Space Card.deps.json
+C:\Users\aleks\OneDrive\Робочий стіл\SpaceCard\Space-Card\.godot\mono\temp\bin\Debug\Space Card.runtimeconfig.json
+C:\Users\aleks\OneDrive\Робочий стіл\SpaceCard\Space-Card\.godot\mono\temp\bin\Debug\Space Card.dll
+C:\Users\aleks\OneDrive\Робочий стіл\SpaceCard\Space-Card\.godot\mono\temp\bin\Debug\Space Card.pdb
+C:\Users\aleks\OneDrive\Робочий стіл\SpaceCard\Space-Card\.godot\mono\temp\bin\Debug\GodotSharp.dll
+C:\Users\aleks\OneDrive\Робочий стіл\SpaceCard\Space-Card\.godot\mono\temp\bin\Debug\GodotSharpEditor.dll
+C:\Users\aleks\OneDrive\Робочий стіл\SpaceCard\Space-Card\.godot\mono\temp\obj\Debug\Space Card.csproj.AssemblyReference.cache
+C:\Users\aleks\OneDrive\Робочий стіл\SpaceCard\Space-Card\.godot\mono\temp\obj\Debug\Space Card.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\aleks\OneDrive\Робочий стіл\SpaceCard\Space-Card\.godot\mono\temp\obj\Debug\Space Card.AssemblyInfoInputs.cache
+C:\Users\aleks\OneDrive\Робочий стіл\SpaceCard\Space-Card\.godot\mono\temp\obj\Debug\Space Card.AssemblyInfo.cs
+C:\Users\aleks\OneDrive\Робочий стіл\SpaceCard\Space-Card\.godot\mono\temp\obj\Debug\Space Card.csproj.CoreCompileInputs.cache
+C:\Users\aleks\OneDrive\Робочий стіл\SpaceCard\Space-Card\.godot\mono\temp\obj\Debug\Space Card.csproj.CopyComplete
+C:\Users\aleks\OneDrive\Робочий стіл\SpaceCard\Space-Card\.godot\mono\temp\obj\Debug\Space Card.dll
+C:\Users\aleks\OneDrive\Робочий стіл\SpaceCard\Space-Card\.godot\mono\temp\obj\Debug\refint\Space Card.dll
+C:\Users\aleks\OneDrive\Робочий стіл\SpaceCard\Space-Card\.godot\mono\temp\obj\Debug\Space Card.pdb
+C:\Users\aleks\OneDrive\Робочий стіл\SpaceCard\Space-Card\.godot\mono\temp\obj\Debug\Space Card.genruntimeconfig.cache
+C:\Users\aleks\OneDrive\Робочий стіл\SpaceCard\Space-Card\.godot\mono\temp\obj\Debug\ref\Space Card.dll

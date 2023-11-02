@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\USERS\\ALEKS\\ONEDRIVE\\РОБОЧИЙ СТІЛ\\SPACECARD\\Space Card.csproj": {}
+    "C:\\Users\\aleks\\OneDrive\\Робочий стіл\\SpaceCard\\Space-Card\\Space Card.csproj": {}
   },
   "projects": {
-    "C:\\USERS\\ALEKS\\ONEDRIVE\\РОБОЧИЙ СТІЛ\\SPACECARD\\Space Card.csproj": {
+    "C:\\Users\\aleks\\OneDrive\\Робочий стіл\\SpaceCard\\Space-Card\\Space Card.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\USERS\\ALEKS\\ONEDRIVE\\РОБОЧИЙ СТІЛ\\SPACECARD\\Space Card.csproj",
+        "projectUniqueName": "C:\\Users\\aleks\\OneDrive\\Робочий стіл\\SpaceCard\\Space-Card\\Space Card.csproj",
         "projectName": "Space Card",
-        "projectPath": "C:\\USERS\\ALEKS\\ONEDRIVE\\РОБОЧИЙ СТІЛ\\SPACECARD\\Space Card.csproj",
+        "projectPath": "C:\\Users\\aleks\\OneDrive\\Робочий стіл\\SpaceCard\\Space-Card\\Space Card.csproj",
         "packagesPath": "C:\\Users\\aleks\\.nuget\\packages\\",
-        "outputPath": "C:\\USERS\\ALEKS\\ONEDRIVE\\РОБОЧИЙ СТІЛ\\SPACECARD\\.godot\\mono\\temp\\obj\\",
+        "outputPath": "C:\\Users\\aleks\\OneDrive\\Робочий стіл\\SpaceCard\\Space-Card\\.godot\\mono\\temp\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
