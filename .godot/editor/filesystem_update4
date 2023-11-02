@@ -1,8 +1,1 @@
 res://scene/world.tscn
-res://scripts/cards/CardBase.cs
-res://scripts/fsm/BattleEndState.cs
-res://scripts/fsm/BattleStartState.cs
-res://scripts/fsm/EnemyTurnState.cs
-res://scripts/fsm/PlayerTurnState.cs
-res://scripts/fsm/State.cs
-res://scripts/fsm/StateMashine.cs
