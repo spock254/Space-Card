@@ -1,34 +1,60 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using static Global.Enums;
 
 public partial class CardBase : Node
 {
-	[Export]
-	public bool isSystemCard;
-    [Export]
-    public string name;
-    [Export]
-    public string description;
-    [Export]
-    public int energyCost;
-    [Export]
-    public Texture2D icon;
-    [Export]
-    public int cooldown = 0;
-	
+	[Export] CardType cardType;
+    [Export] string name;
+    [Export] string description;
+    [Export] int energyCost;
+    [Export] Texture2D icon;
+    [Export] int cooldown = 0;
+	[Export] int maxStaffCard = 3;
+
+	List<CrewCardBase> staffCards = new List<CrewCardBase>();
 
 	bool isActive = true;
 	int currentCooldown = 0;
 	int originEnergyCost = 0;
 	int energyCostCooldown = 0;
+	string originDescription = string.Empty;
 
 	public override void _Ready()
 	{
 		originEnergyCost = energyCost;
+		originDescription = description;
 	}
 
 	public virtual void Turn() { }
+
+	public bool UpdateCard(CrewCardBase crewCard) 
+	{
+		return true;
+	}
+
+	public bool AddCrewCard(CrewCardBase crewCard) 
+	{
+		if (staffCards.Count >= maxStaffCard) 
+		{
+			return false;
+		}
+
+		if (this.cardType != crewCard.GetCardType()) 
+		{
+			return false;
+		}
+
+		staffCards.Add(crewCard);
+
+		//update energy
+		//update effect
+		//update descr
+
+		return true;
+	}
+
 
 	void OnPlayerTurn() 
 	{
@@ -75,6 +101,12 @@ public partial class CardBase : Node
 		SetEnergyCostCooldown(energyCostCooldown);
 	}
 
+	public CardType GetCardType() => cardType;
+    public string GetName() => name;
+    public string GetDescription() => description;
+    public int GetEnergyCost() => energyCost;
+    public Texture2D GetIcon() => icon;
+    public int GetCooldown() => cooldown;
 	public bool IsActive() => isActive;
 	public void SetEnergyCost(int energyCost) => this.energyCost = energyCost;
 	public void SetEnergyCostCooldown(int energyCostCooldown) => this.energyCostCooldown = energyCostCooldown;

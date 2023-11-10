@@ -3,6 +3,16 @@ using System;
 
 public static class Global
 {
+	public static SelectedSystemCard selectedSystemCard = null;
+	public static class Enums 
+	{
+		public enum CardType
+		{
+			ATTACK,
+			DEFFENCE,
+			OTHER
+		}
+	}
 
 	public static class State 
 	{
