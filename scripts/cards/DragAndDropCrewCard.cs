@@ -32,20 +32,33 @@ public partial class DragAndDropCrewCard : TextureRect
                 
                 if (systemCard == null)
                 {
-                    selected = false;
-                    rootControl.RemoveChild(this);
-                    parentContainer.AddChild(this);
-                    parentContainer.MoveChild(this, childOrder);
-                    this.MouseFilter = MouseFilterEnum.Pass;
+                    ReturnToCrewCardPanel();
                 }
                 else 
                 {
                     bool updateResult = Global.selectedSystemCard.GetSystemCardUI().UpdateCard(crewCard);
+
+                    if (updateResult == false)
+                    {
+                        ReturnToCrewCardPanel();
+                        return;
+                    }
+                    
                     Free();
+                    
                 }
 
             }
         }
+    }
+
+    void ReturnToCrewCardPanel() 
+    {
+        selected = false;
+        rootControl.RemoveChild(this);
+        parentContainer.AddChild(this);
+        parentContainer.MoveChild(this, childOrder);
+        this.MouseFilter = MouseFilterEnum.Pass;
     }
 
     void OnGuiInput(InputEvent @event) 

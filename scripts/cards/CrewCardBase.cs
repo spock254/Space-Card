@@ -17,4 +17,15 @@ public partial class CrewCardBase : Node
     public int GetEnergyCost() => energyCost;
     public Texture2D GetIcon() => icon;
     public int GetCooldown() => cooldown;
+
+    public void Copy(CrewCardBase other) 
+    {
+        this.cardType = other.cardType;
+        this.name = other.name;
+        this.description = other.description;
+        this.energyCost = other.energyCost;
+        this.icon = other.icon;
+        this.cooldown = other.cooldown;
+
+    }
 }

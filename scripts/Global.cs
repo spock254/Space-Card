@@ -10,6 +10,7 @@ public static class Global
 		{
 			ATTACK,
 			DEFFENCE,
+			SYSTEM,
 			OTHER
 		}
 	}

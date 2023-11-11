@@ -38,6 +38,21 @@ public partial class CardBase : Node
 		return true;
 	}
 
+	public CrewCardBase ReleseCrewCard() 
+	{
+		if (crewCards.Count == 0) 
+		{
+			GD.Print("NO CREW CARD");
+			return null;
+		}
+
+		CrewCardBase crewCardToRelese = crewCards[crewCards.Count - 1];
+        SetEnergyCost(energyCost - crewCardToRelese.GetEnergyCost());
+        crewCards.RemoveAt(crewCards.Count - 1);
+
+		return crewCardToRelese;
+	}
+
 	public bool AddCrewCard(CrewCardBase crewCard) 
 	{
 		if (crewCards.Count >= maxCrewCard) 
@@ -103,6 +118,10 @@ public partial class CardBase : Node
 	{
 		SetEnergyCost(energyCost);
 		SetEnergyCostCooldown(energyCostCooldown);
+	}
+	public bool IsCrewCardsFull() 
+	{
+		return crewCards.Count == maxCrewCard;
 	}
 
 	public CardType GetCardType() => cardType;

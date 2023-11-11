@@ -1,0 +1,42 @@
+[gd_scene load_steps=9 format=3 uid="uid://cr6drxhcfxt3p"]
+
+[ext_resource type="Texture2D" uid="uid://c2k3lq6hc2gov" path="res://art/ui/card_crew_frame.png" id="1_me5kf"]
+[ext_resource type="Script" path="res://scripts/cards/DragAndDropCrewCard.cs" id="2_yfab6"]
+[ext_resource type="Script" path="res://scripts/cards/CrewCardBase.cs" id="3_a1v03"]
+[ext_resource type="Script" path="res://scripts/cards/CrewCardUI.cs" id="4_hg6um"]
+[ext_resource type="Texture2D" uid="uid://hej4jfmwn4ng" path="res://art/ui/card_crew_icon_attack_2.png" id="4_yxx3a"]
+[ext_resource type="Texture2D" uid="uid://di5qiefgp3s0h" path="res://art/ui/card_crew_icon_attack_5.png" id="5_nntic"]
+[ext_resource type="FontFile" uid="uid://csnlb6rxnvx43" path="res://font/04B_03__.TTF" id="6_ssfxg"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_08pd4"]
+font = ExtResource("6_ssfxg")
+
+[node name="Crew Card UI" type="TextureRect"]
+texture = ExtResource("1_me5kf")
+script = ExtResource("2_yfab6")
+
+[node name="Crew Card" type="Node" parent="."]
+script = ExtResource("3_a1v03")
+energyCost = 1
+icon = ExtResource("4_yxx3a")
+
+[node name="Crew Card UI" type="Node" parent="."]
+script = ExtResource("4_hg6um")
+
+[node name="Icon" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 80.0
+offset_bottom = 56.0
+mouse_filter = 2
+texture = ExtResource("5_nntic")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 4.0
+offset_right = 78.0
+offset_bottom = 27.0
+text = "1"
+label_settings = SubResource("LabelSettings_08pd4")
+
+[connection signal="gui_input" from="." to="." method="OnGuiInput"]
