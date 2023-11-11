@@ -1,13 +1,13 @@
 res://scene/world.tscn
 res://scripts/cards/CardBase.cs
 res://scripts/cards/CardUI.cs
+res://scripts/cards/CrewCardBase.cs
 res://scripts/cards/DragAndDropCrewCard.cs
 res://scripts/cards/SelectedSystemCard.cs
-res://scripts/cards/StaffCardBase.cs
 res://scripts/fsm/BattleEndState.cs
 res://scripts/fsm/BattleStartState.cs
 res://scripts/fsm/EnemyTurnState.cs
 res://scripts/fsm/PlayerTurnState.cs
 res://scripts/fsm/State.cs
 res://scripts/fsm/StateMashine.cs
-res://scripts/cards/CrewCardBase.cs
+res://scripts/cards/CrewCardUI.cs

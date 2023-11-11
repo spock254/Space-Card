@@ -11,9 +11,9 @@ public partial class CardBase : Node
     [Export] int energyCost;
     [Export] Texture2D icon;
     [Export] int cooldown = 0;
-	[Export] int maxStaffCard = 3;
+	[Export] int maxCrewCard = 3;
 
-	List<CrewCardBase> staffCards = new List<CrewCardBase>();
+	List<CrewCardBase> crewCards = new List<CrewCardBase>();
 
 	bool isActive = true;
 	int currentCooldown = 0;
@@ -31,12 +31,16 @@ public partial class CardBase : Node
 
 	public bool UpdateCard(CrewCardBase crewCard) 
 	{
+        AddCrewCard(crewCard);
+
+		SetEnergyCost(energyCost + crewCard.GetEnergyCost());
+
 		return true;
 	}
 
 	public bool AddCrewCard(CrewCardBase crewCard) 
 	{
-		if (staffCards.Count >= maxStaffCard) 
+		if (crewCards.Count >= maxCrewCard) 
 		{
 			return false;
 		}
@@ -46,7 +50,7 @@ public partial class CardBase : Node
 			return false;
 		}
 
-		staffCards.Add(crewCard);
+        crewCards.Add(crewCard);
 
 		//update energy
 		//update effect
@@ -110,4 +114,6 @@ public partial class CardBase : Node
 	public bool IsActive() => isActive;
 	public void SetEnergyCost(int energyCost) => this.energyCost = energyCost;
 	public void SetEnergyCostCooldown(int energyCostCooldown) => this.energyCostCooldown = energyCostCooldown;
+	public int GetMaxCrewCard() => maxCrewCard;
+	public List<CrewCardBase> GetCrewCards() => crewCards;
 }
