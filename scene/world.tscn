@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://cvae24277xr7w"]
+[gd_scene load_steps=50 format=3 uid="uid://cvae24277xr7w"]
 
 [ext_resource type="Script" path="res://scripts/fsm/StateMashine.cs" id="1_r3p4o"]
 [ext_resource type="Script" path="res://scripts/fsm/PlayerTurnState.cs" id="2_k4wg2"]
@@ -13,15 +13,19 @@
 [ext_resource type="Texture2D" uid="uid://doqnbpw2qu0bg" path="res://art/ui/card_system_energy_frame.png" id="10_7bfeb"]
 [ext_resource type="Texture2D" uid="uid://cxe3t2yq14o7q" path="res://art/ui/tooltip_header_attack.png" id="10_30m37"]
 [ext_resource type="Script" path="res://scripts/cards/SelectedSystemCard.cs" id="10_jjche"]
+[ext_resource type="Texture2D" uid="uid://bvj520pmult5s" path="res://art/ui/hp_slot_full.png" id="10_qd86r"]
 [ext_resource type="Texture2D" uid="uid://7fkj8bft2ghv" path="res://art/ui/card_system_stack_slot_emptyl.png" id="10_rgdgt"]
 [ext_resource type="Script" path="res://scripts/Tooltip.cs" id="11_7xwa4"]
 [ext_resource type="Texture2D" uid="uid://ba15xjaw5q3yn" path="res://art/ui/tooltip_middle.png" id="11_c4d7j"]
 [ext_resource type="Texture2D" uid="uid://c4s3bf3e6vieg" path="res://art/ui/card_system_icon_laser_1.png" id="11_fdr4o"]
+[ext_resource type="Texture2D" uid="uid://b0bio7bcnovqw" path="res://art/ui/hp_slot_empty.png" id="11_n14lg"]
 [ext_resource type="FontFile" uid="uid://kl4cqble04qj" path="res://font/8-bit-hud.ttf" id="11_nwpp7"]
 [ext_resource type="Texture2D" uid="uid://cv8nohsgdcc71" path="res://art/ui/card_system_stack_slot_full.png" id="12_5sf1a"]
+[ext_resource type="Texture2D" uid="uid://ctx3w5r4ra53t" path="res://art/ui/shield_slot_full.png" id="12_ams4y"]
 [ext_resource type="Texture2D" uid="uid://becriaq6lju63" path="res://art/ui/icon_card_type_drone.png" id="12_g7lh6"]
 [ext_resource type="Texture2D" uid="uid://llyfdtwtg0ju" path="res://art/ui/tooltip_bottom.png" id="12_j35mx"]
 [ext_resource type="Texture2D" uid="uid://cycjrky3n5rai" path="res://art/ui/card_system_header_attack.png" id="13_2ojp1"]
+[ext_resource type="Texture2D" uid="uid://cfxoyydl0l0fv" path="res://art/ui/shield_slot_empty.png" id="13_nqgjh"]
 [ext_resource type="FontFile" uid="uid://csnlb6rxnvx43" path="res://font/04B_03__.TTF" id="14_t458f"]
 [ext_resource type="Texture2D" uid="uid://bwt44puk3xyko" path="res://art/ui/card_system_header_defence.png" id="15_ifafq"]
 [ext_resource type="Texture2D" uid="uid://ky12m75il7v4" path="res://art/ui/card_system_frame_big.png" id="15_wfgls"]
@@ -31,6 +35,14 @@
 [ext_resource type="Texture2D" uid="uid://b6fckj81c3w4x" path="res://art/_mockup.png" id="20_vwb5a"]
 [ext_resource type="PackedScene" uid="uid://cr6drxhcfxt3p" path="res://pref/crew_card_base.tscn" id="22_x5f3j"]
 [ext_resource type="Script" path="res://scripts/cards/SelectedCrewCard.cs" id="29_6566m"]
+[ext_resource type="Texture2D" uid="uid://b4royiyoov2pm" path="res://art/ui/energy_frame.png" id="31_8jvff"]
+[ext_resource type="Texture2D" uid="uid://50kdv85hg0r5" path="res://art/ui/energy_slot_empty.png" id="32_3cofy"]
+[ext_resource type="Texture2D" uid="uid://bxi7k6nwcwuwv" path="res://art/ui/energy_slot_full.png" id="32_6fgl3"]
+[ext_resource type="Texture2D" uid="uid://bwfyfqvis1a4r" path="res://art/ui/button_end_turn_active.png" id="34_awbby"]
+[ext_resource type="Texture2D" uid="uid://ch7cpgop050xo" path="res://art/ui/button_map.png" id="34_ykuqi"]
+[ext_resource type="Texture2D" uid="uid://boacl7e3ku6e1" path="res://art/ui/button_card_deck.png" id="35_sd8aw"]
+[ext_resource type="Texture2D" uid="uid://iywh5krjk1h" path="res://art/ui/button_settings.png" id="35_v12fj"]
+[ext_resource type="Texture2D" uid="uid://nnxpdfaintqk" path="res://art/ui/button_ship_inventory.png" id="36_5dcgg"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_b1iuj"]
 font = ExtResource("14_t458f")
@@ -102,6 +114,166 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Player HP" type="HBoxContainer" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 148.0
+offset_top = 73.0
+offset_right = 158.0
+offset_bottom = 97.0
+
+[node name="HP slot" type="TextureRect" parent="CanvasLayer/Control/Player HP"]
+layout_mode = 2
+texture = ExtResource("10_qd86r")
+
+[node name="HP slot2" type="TextureRect" parent="CanvasLayer/Control/Player HP"]
+layout_mode = 2
+texture = ExtResource("10_qd86r")
+
+[node name="HP slot3" type="TextureRect" parent="CanvasLayer/Control/Player HP"]
+layout_mode = 2
+texture = ExtResource("10_qd86r")
+
+[node name="HP slot4" type="TextureRect" parent="CanvasLayer/Control/Player HP"]
+layout_mode = 2
+texture = ExtResource("10_qd86r")
+
+[node name="HP slot5" type="TextureRect" parent="CanvasLayer/Control/Player HP"]
+layout_mode = 2
+texture = ExtResource("10_qd86r")
+
+[node name="HP slot6" type="TextureRect" parent="CanvasLayer/Control/Player HP"]
+layout_mode = 2
+texture = ExtResource("10_qd86r")
+
+[node name="HP slot7" type="TextureRect" parent="CanvasLayer/Control/Player HP"]
+layout_mode = 2
+texture = ExtResource("10_qd86r")
+
+[node name="HP slot8" type="TextureRect" parent="CanvasLayer/Control/Player HP"]
+layout_mode = 2
+texture = ExtResource("10_qd86r")
+
+[node name="HP slot9" type="TextureRect" parent="CanvasLayer/Control/Player HP"]
+layout_mode = 2
+texture = ExtResource("10_qd86r")
+
+[node name="HP slot10" type="TextureRect" parent="CanvasLayer/Control/Player HP"]
+layout_mode = 2
+texture = ExtResource("10_qd86r")
+
+[node name="HP slot11" type="TextureRect" parent="CanvasLayer/Control/Player HP"]
+layout_mode = 2
+texture = ExtResource("10_qd86r")
+
+[node name="HP slot12" type="TextureRect" parent="CanvasLayer/Control/Player HP"]
+layout_mode = 2
+texture = ExtResource("10_qd86r")
+
+[node name="HP slot13" type="TextureRect" parent="CanvasLayer/Control/Player HP"]
+layout_mode = 2
+texture = ExtResource("10_qd86r")
+
+[node name="HP slot14" type="TextureRect" parent="CanvasLayer/Control/Player HP"]
+layout_mode = 2
+texture = ExtResource("10_qd86r")
+
+[node name="HP slot15" type="TextureRect" parent="CanvasLayer/Control/Player HP"]
+layout_mode = 2
+texture = ExtResource("11_n14lg")
+
+[node name="Player Shield" type="HBoxContainer" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 146.0
+offset_top = 107.0
+offset_right = 212.0
+offset_bottom = 117.0
+
+[node name="Shield slot" type="TextureRect" parent="CanvasLayer/Control/Player Shield"]
+layout_mode = 2
+texture = ExtResource("12_ams4y")
+
+[node name="Shield slot2" type="TextureRect" parent="CanvasLayer/Control/Player Shield"]
+layout_mode = 2
+texture = ExtResource("12_ams4y")
+
+[node name="Shield slot3" type="TextureRect" parent="CanvasLayer/Control/Player Shield"]
+layout_mode = 2
+texture = ExtResource("12_ams4y")
+
+[node name="Shield slot4" type="TextureRect" parent="CanvasLayer/Control/Player Shield"]
+layout_mode = 2
+texture = ExtResource("12_ams4y")
+
+[node name="Shield slot5" type="TextureRect" parent="CanvasLayer/Control/Player Shield"]
+layout_mode = 2
+texture = ExtResource("13_nqgjh")
+
+[node name="Enemy HP" type="HBoxContainer" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 956.0
+offset_top = 73.0
+offset_right = 1092.0
+offset_bottom = 97.0
+
+[node name="HP slot" type="TextureRect" parent="CanvasLayer/Control/Enemy HP"]
+layout_mode = 2
+texture = ExtResource("10_qd86r")
+
+[node name="HP slot2" type="TextureRect" parent="CanvasLayer/Control/Enemy HP"]
+layout_mode = 2
+texture = ExtResource("10_qd86r")
+
+[node name="HP slot3" type="TextureRect" parent="CanvasLayer/Control/Enemy HP"]
+layout_mode = 2
+texture = ExtResource("10_qd86r")
+
+[node name="HP slot4" type="TextureRect" parent="CanvasLayer/Control/Enemy HP"]
+layout_mode = 2
+texture = ExtResource("10_qd86r")
+
+[node name="HP slot5" type="TextureRect" parent="CanvasLayer/Control/Enemy HP"]
+layout_mode = 2
+texture = ExtResource("10_qd86r")
+
+[node name="HP slot6" type="TextureRect" parent="CanvasLayer/Control/Enemy HP"]
+layout_mode = 2
+texture = ExtResource("10_qd86r")
+
+[node name="HP slot7" type="TextureRect" parent="CanvasLayer/Control/Enemy HP"]
+layout_mode = 2
+texture = ExtResource("11_n14lg")
+
+[node name="HP slot8" type="TextureRect" parent="CanvasLayer/Control/Enemy HP"]
+layout_mode = 2
+texture = ExtResource("11_n14lg")
+
+[node name="HP slot9" type="TextureRect" parent="CanvasLayer/Control/Enemy HP"]
+layout_mode = 2
+texture = ExtResource("11_n14lg")
+
+[node name="HP slot10" type="TextureRect" parent="CanvasLayer/Control/Enemy HP"]
+layout_mode = 2
+texture = ExtResource("11_n14lg")
+
+[node name="Enemy Shield" type="HBoxContainer" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 954.0
+offset_top = 107.0
+offset_right = 992.0
+offset_bottom = 117.0
+
+[node name="Shield slot" type="TextureRect" parent="CanvasLayer/Control/Enemy Shield"]
+layout_mode = 2
+texture = ExtResource("12_ams4y")
+
+[node name="Shield slot2" type="TextureRect" parent="CanvasLayer/Control/Enemy Shield"]
+layout_mode = 2
+texture = ExtResource("12_ams4y")
+
+[node name="Shield slot3" type="TextureRect" parent="CanvasLayer/Control/Enemy Shield"]
+layout_mode = 2
+texture = ExtResource("12_ams4y")
 
 [node name="Tooltip" type="TextureRect" parent="CanvasLayer/Control"]
 z_index = 1
@@ -483,6 +655,103 @@ layout_mode = 2
 
 [node name="Crew Card UI3" parent="CanvasLayer/Control/Crew Panel" instance=ExtResource("22_x5f3j")]
 layout_mode = 2
+
+[node name="Energy" type="TextureRect" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 645.0
+offset_right = 70.0
+offset_bottom = 695.0
+texture = ExtResource("31_8jvff")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/Energy"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -15.0
+offset_top = -62.0
+offset_right = 29.0
+offset_bottom = -22.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 8
+alignment = 2
+
+[node name="Energy Charge" type="TextureRect" parent="CanvasLayer/Control/Energy/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("32_3cofy")
+
+[node name="Energy Charge2" type="TextureRect" parent="CanvasLayer/Control/Energy/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("32_6fgl3")
+
+[node name="Energy Charge3" type="TextureRect" parent="CanvasLayer/Control/Energy/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("32_6fgl3")
+
+[node name="Energy Charge4" type="TextureRect" parent="CanvasLayer/Control/Energy/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("32_6fgl3")
+
+[node name="Energy Charge5" type="TextureRect" parent="CanvasLayer/Control/Energy/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("32_6fgl3")
+
+[node name="Energy Charge6" type="TextureRect" parent="CanvasLayer/Control/Energy/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("32_6fgl3")
+
+[node name="Energy Charge7" type="TextureRect" parent="CanvasLayer/Control/Energy/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("32_6fgl3")
+
+[node name="Map Button" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 638.0
+offset_top = 7.0
+offset_right = 724.0
+offset_bottom = 47.0
+icon = ExtResource("34_ykuqi")
+flat = true
+
+[node name="Card Deck Button" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 6.0
+offset_right = 52.0
+offset_bottom = 62.0
+icon = ExtResource("35_sd8aw")
+flat = true
+
+[node name="Settings Button" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 716.0
+offset_top = 7.0
+offset_right = 762.0
+offset_bottom = 43.0
+icon = ExtResource("35_v12fj")
+flat = true
+
+[node name="Inventory Button" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 556.0
+offset_top = 7.0
+offset_right = 642.0
+offset_bottom = 47.0
+icon = ExtResource("36_5dcgg")
+flat = true
+
+[node name="End Turn Button" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 1058.0
+offset_top = 659.0
+offset_right = 1214.0
+offset_bottom = 701.0
+icon = ExtResource("34_awbby")
+flat = true
 
 [node name="Mockup" type="Sprite2D" parent="."]
 self_modulate = Color(1, 1, 1, 0.392157)
