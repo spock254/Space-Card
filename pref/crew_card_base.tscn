@@ -17,6 +17,8 @@ script = ExtResource("2_yfab6")
 
 [node name="Crew Card" type="Node" parent="."]
 script = ExtResource("3_a1v03")
+name = "CREW CARD"
+description = "text"
 energyCost = 1
 icon = ExtResource("4_yxx3a")
 

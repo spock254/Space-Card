@@ -1,4 +1,5 @@
 res://scene/world.tscn
+res://pref/crew_card_base.tscn
 res://scripts/cards/CardBase.cs
 res://scripts/cards/CardUI.cs
 res://scripts/cards/CrewCardBase.cs
@@ -12,9 +13,6 @@ res://scripts/fsm/EnemyTurnState.cs
 res://scripts/fsm/PlayerTurnState.cs
 res://scripts/fsm/State.cs
 res://scripts/fsm/StateMashine.cs
-res://scripts/player/PlayerHpUI.cs
+res://scripts/player/StatBarUI.cs
 res://scripts/player/Stats.cs
 res://scripts/Tooltip.cs
-res://scripts/player/HpUI.cs
-res://scripts/player/StatBar.cs
-res://scripts/player/StatBarUI.cs

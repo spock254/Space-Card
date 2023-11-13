@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://cvae24277xr7w"]
+[gd_scene load_steps=64 format=3 uid="uid://cvae24277xr7w"]
 
 [ext_resource type="Script" path="res://scripts/player/Stats.cs" id="1_08ukl"]
 [ext_resource type="Script" path="res://scripts/fsm/StateMashine.cs" id="1_r3p4o"]
@@ -34,8 +34,10 @@
 [ext_resource type="Texture2D" uid="uid://cbe0bge881vex" path="res://art/ui/card_system_icon_drone.png" id="16_vsgil"]
 [ext_resource type="Texture2D" uid="uid://ydj2exjnikeh" path="res://art/ui/card_system_header_drone.png" id="16_wll0b"]
 [ext_resource type="Texture2D" uid="uid://b3wvxk04sctx3" path="res://art/ui/card_system_frame_small.png" id="17_vgpsi"]
+[ext_resource type="Texture2D" uid="uid://c0fbh0xhws842" path="res://art/ui/tooltip_header_defence.png" id="17_yd76a"]
+[ext_resource type="Texture2D" uid="uid://h8kpkaioxoi7" path="res://art/ui/tooltip_header_drone.png" id="18_kbagy"]
+[ext_resource type="Texture2D" uid="uid://c7ney7q1fv2wi" path="res://art/ui/tooltip_header_neutral.png" id="19_2gcdy"]
 [ext_resource type="Texture2D" uid="uid://b6fckj81c3w4x" path="res://art/_mockup.png" id="20_vwb5a"]
-[ext_resource type="PackedScene" uid="uid://cr6drxhcfxt3p" path="res://pref/crew_card_base.tscn" id="22_x5f3j"]
 [ext_resource type="Script" path="res://scripts/cards/SelectedCrewCard.cs" id="29_6566m"]
 [ext_resource type="Texture2D" uid="uid://b4royiyoov2pm" path="res://art/ui/energy_frame.png" id="31_8jvff"]
 [ext_resource type="Texture2D" uid="uid://50kdv85hg0r5" path="res://art/ui/energy_slot_empty.png" id="32_3cofy"]
@@ -45,6 +47,15 @@
 [ext_resource type="Texture2D" uid="uid://boacl7e3ku6e1" path="res://art/ui/button_card_deck.png" id="35_sd8aw"]
 [ext_resource type="Texture2D" uid="uid://iywh5krjk1h" path="res://art/ui/button_settings.png" id="35_v12fj"]
 [ext_resource type="Texture2D" uid="uid://nnxpdfaintqk" path="res://art/ui/button_ship_inventory.png" id="36_5dcgg"]
+[ext_resource type="Texture2D" uid="uid://dgfr71omo7jy4" path="res://art/ui/card_crew_icon_defence_5.png" id="38_fkrah"]
+[ext_resource type="Texture2D" uid="uid://c2k3lq6hc2gov" path="res://art/ui/card_crew_frame.png" id="39_cjcen"]
+[ext_resource type="Script" path="res://scripts/cards/DragAndDropCrewCard.cs" id="40_d1tn4"]
+[ext_resource type="Script" path="res://scripts/cards/CrewCardBase.cs" id="41_wi6f2"]
+[ext_resource type="Texture2D" uid="uid://hej4jfmwn4ng" path="res://art/ui/card_crew_icon_attack_2.png" id="42_xnsip"]
+[ext_resource type="Script" path="res://scripts/cards/CrewCardUI.cs" id="43_p2656"]
+[ext_resource type="Texture2D" uid="uid://di5qiefgp3s0h" path="res://art/ui/card_crew_icon_attack_5.png" id="44_lxfvu"]
+[ext_resource type="Texture2D" uid="uid://dfqe5hdhhxhhf" path="res://art/ui/card_crew_icon_defence_4.png" id="45_jtr0e"]
+[ext_resource type="Texture2D" uid="uid://dpsehn586lyto" path="res://art/ui/card_crew_icon_drone_3.png" id="46_pu8bo"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_b1iuj"]
 font = ExtResource("14_t458f")
@@ -72,6 +83,9 @@ line_spacing = 2.0
 font = ExtResource("11_nwpp7")
 font_size = 5
 font_color = Color(0.816406, 0.453125, 0.253906, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_08pd4"]
+font = ExtResource("14_t458f")
 
 [node name="World" type="Node2D"]
 
@@ -461,6 +475,10 @@ offset_bottom = 450.0
 texture = ExtResource("10_30m37")
 script = ExtResource("11_7xwa4")
 offset = Vector2(0, 2)
+headerAttack = ExtResource("10_30m37")
+headerDefence = ExtResource("17_yd76a")
+headerSystem = ExtResource("18_kbagy")
+headerNeutral = ExtResource("19_2gcdy")
 
 [node name="Name" type="Label" parent="CanvasLayer/Control/Tooltip"]
 layout_mode = 0
@@ -680,10 +698,11 @@ systemTop = ExtResource("16_wll0b")
 
 [node name="Card" type="Node" parent="CanvasLayer/Control/System Panel/Card UI2"]
 script = ExtResource("7_ojxeq")
-name = "GUN"
-description = "+1 damage"
-energyCost = 2
-icon = ExtResource("11_fdr4o")
+cardType = 1
+name = "SHIELD 2000"
+description = "+1 shield"
+energyCost = 1
+icon = ExtResource("38_fkrah")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/System Panel/Card UI2"]
 layout_mode = 2
@@ -823,14 +842,100 @@ alignment = 1
 [node name="Selected Crew Card" type="Node" parent="CanvasLayer/Control/Crew Panel"]
 script = ExtResource("29_6566m")
 
-[node name="Crew Card UI" parent="CanvasLayer/Control/Crew Panel" instance=ExtResource("22_x5f3j")]
+[node name="Crew Card UI" type="TextureRect" parent="CanvasLayer/Control/Crew Panel"]
 layout_mode = 2
+texture = ExtResource("39_cjcen")
+script = ExtResource("40_d1tn4")
 
-[node name="Crew Card UI2" parent="CanvasLayer/Control/Crew Panel" instance=ExtResource("22_x5f3j")]
-layout_mode = 2
+[node name="Crew Card" type="Node" parent="CanvasLayer/Control/Crew Panel/Crew Card UI"]
+script = ExtResource("41_wi6f2")
+name = "CREW CARD"
+description = "text"
+energyCost = 2
+icon = ExtResource("42_xnsip")
 
-[node name="Crew Card UI3" parent="CanvasLayer/Control/Crew Panel" instance=ExtResource("22_x5f3j")]
+[node name="Crew Card UI" type="Node" parent="CanvasLayer/Control/Crew Panel/Crew Card UI"]
+script = ExtResource("43_p2656")
+
+[node name="Icon" type="TextureRect" parent="CanvasLayer/Control/Crew Panel/Crew Card UI"]
+layout_mode = 0
+offset_right = 80.0
+offset_bottom = 56.0
+mouse_filter = 2
+texture = ExtResource("44_lxfvu")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/Crew Panel/Crew Card UI"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 4.0
+offset_right = 78.0
+offset_bottom = 27.0
+text = "1"
+label_settings = SubResource("LabelSettings_08pd4")
+
+[node name="Crew Card UI2" type="TextureRect" parent="CanvasLayer/Control/Crew Panel"]
 layout_mode = 2
+texture = ExtResource("39_cjcen")
+script = ExtResource("40_d1tn4")
+
+[node name="Crew Card" type="Node" parent="CanvasLayer/Control/Crew Panel/Crew Card UI2"]
+script = ExtResource("41_wi6f2")
+cardType = 1
+name = "CREW CARD"
+description = "text"
+energyCost = 1
+icon = ExtResource("45_jtr0e")
+
+[node name="Crew Card UI" type="Node" parent="CanvasLayer/Control/Crew Panel/Crew Card UI2"]
+script = ExtResource("43_p2656")
+
+[node name="Icon" type="TextureRect" parent="CanvasLayer/Control/Crew Panel/Crew Card UI2"]
+layout_mode = 0
+offset_right = 80.0
+offset_bottom = 56.0
+mouse_filter = 2
+texture = ExtResource("44_lxfvu")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/Crew Panel/Crew Card UI2"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 4.0
+offset_right = 78.0
+offset_bottom = 27.0
+text = "1"
+label_settings = SubResource("LabelSettings_08pd4")
+
+[node name="Crew Card UI3" type="TextureRect" parent="CanvasLayer/Control/Crew Panel"]
+layout_mode = 2
+texture = ExtResource("39_cjcen")
+script = ExtResource("40_d1tn4")
+
+[node name="Crew Card" type="Node" parent="CanvasLayer/Control/Crew Panel/Crew Card UI3"]
+script = ExtResource("41_wi6f2")
+cardType = 2
+name = "DRONE 1"
+description = "text"
+energyCost = 1
+icon = ExtResource("46_pu8bo")
+
+[node name="Crew Card UI" type="Node" parent="CanvasLayer/Control/Crew Panel/Crew Card UI3"]
+script = ExtResource("43_p2656")
+
+[node name="Icon" type="TextureRect" parent="CanvasLayer/Control/Crew Panel/Crew Card UI3"]
+layout_mode = 0
+offset_right = 80.0
+offset_bottom = 56.0
+mouse_filter = 2
+texture = ExtResource("44_lxfvu")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/Crew Panel/Crew Card UI3"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 4.0
+offset_right = 78.0
+offset_bottom = 27.0
+text = "1"
+label_settings = SubResource("LabelSettings_08pd4")
 
 [node name="Energy" type="TextureRect" parent="CanvasLayer/Control"]
 layout_mode = 0
@@ -972,3 +1077,12 @@ texture = ExtResource("20_vwb5a")
 [connection signal="gui_input" from="CanvasLayer/Control/System Panel/Card UI2" to="CanvasLayer/Control/System Panel/Card UI2" method="OnGuiInput"]
 [connection signal="mouse_entered" from="CanvasLayer/Control/System Panel/Card UI2" to="CanvasLayer/Control/System Panel/Card UI2" method="OnMouseEntered"]
 [connection signal="mouse_exited" from="CanvasLayer/Control/System Panel/Card UI2" to="CanvasLayer/Control/System Panel/Card UI2" method="OnMouseExited"]
+[connection signal="gui_input" from="CanvasLayer/Control/Crew Panel/Crew Card UI" to="CanvasLayer/Control/Crew Panel/Crew Card UI" method="OnGuiInput" flags=18]
+[connection signal="mouse_entered" from="CanvasLayer/Control/Crew Panel/Crew Card UI" to="CanvasLayer/Control/Crew Panel/Crew Card UI/Crew Card UI" method="OnMouseEntered" flags=18]
+[connection signal="mouse_exited" from="CanvasLayer/Control/Crew Panel/Crew Card UI" to="CanvasLayer/Control/Crew Panel/Crew Card UI/Crew Card UI" method="OnMouseExited" flags=18]
+[connection signal="gui_input" from="CanvasLayer/Control/Crew Panel/Crew Card UI2" to="CanvasLayer/Control/Crew Panel/Crew Card UI2" method="OnGuiInput" flags=18]
+[connection signal="mouse_entered" from="CanvasLayer/Control/Crew Panel/Crew Card UI2" to="CanvasLayer/Control/Crew Panel/Crew Card UI2/Crew Card UI" method="OnMouseEntered" flags=18]
+[connection signal="mouse_exited" from="CanvasLayer/Control/Crew Panel/Crew Card UI2" to="CanvasLayer/Control/Crew Panel/Crew Card UI2/Crew Card UI" method="OnMouseExited" flags=18]
+[connection signal="gui_input" from="CanvasLayer/Control/Crew Panel/Crew Card UI3" to="CanvasLayer/Control/Crew Panel/Crew Card UI3" method="OnGuiInput" flags=18]
+[connection signal="mouse_entered" from="CanvasLayer/Control/Crew Panel/Crew Card UI3" to="CanvasLayer/Control/Crew Panel/Crew Card UI3/Crew Card UI" method="OnMouseEntered" flags=18]
+[connection signal="mouse_exited" from="CanvasLayer/Control/Crew Panel/Crew Card UI3" to="CanvasLayer/Control/Crew Panel/Crew Card UI3/Crew Card UI" method="OnMouseExited" flags=18]

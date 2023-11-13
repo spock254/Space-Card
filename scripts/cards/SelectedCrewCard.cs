@@ -14,4 +14,5 @@ public partial class SelectedCrewCard : Node
 
     public void SetSelectedCrewCard(TextureRect crewCard) => this.crewCard = crewCard;
     public TextureRect GetSelectedCrewCard() => this.crewCard;
+    public CrewCardBase GetCrewCard() => GetSelectedCrewCard().GetNode<CrewCardBase>("Crew Card");
 }

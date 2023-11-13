@@ -14,6 +14,7 @@ public static class Global
 			ATTACK,
 			DEFFENCE,
 			SYSTEM,
+			NEUTRAL,
 			OTHER
 		}
 	}
