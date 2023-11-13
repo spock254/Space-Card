@@ -1,8 +1,8 @@
+Node
 TextureRect
 HBoxContainer
 Button
 VBoxContainer
-Node
 Node2D
 Label
 PointLight2D

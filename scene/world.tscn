@@ -1,5 +1,6 @@
-[gd_scene load_steps=50 format=3 uid="uid://cvae24277xr7w"]
+[gd_scene load_steps=52 format=3 uid="uid://cvae24277xr7w"]
 
+[ext_resource type="Script" path="res://scripts/player/Stats.cs" id="1_08ukl"]
 [ext_resource type="Script" path="res://scripts/fsm/StateMashine.cs" id="1_r3p4o"]
 [ext_resource type="Script" path="res://scripts/fsm/PlayerTurnState.cs" id="2_k4wg2"]
 [ext_resource type="Script" path="res://scripts/fsm/BattleStartState.cs" id="2_ulmwl"]
@@ -18,6 +19,7 @@
 [ext_resource type="Script" path="res://scripts/Tooltip.cs" id="11_7xwa4"]
 [ext_resource type="Texture2D" uid="uid://ba15xjaw5q3yn" path="res://art/ui/tooltip_middle.png" id="11_c4d7j"]
 [ext_resource type="Texture2D" uid="uid://c4s3bf3e6vieg" path="res://art/ui/card_system_icon_laser_1.png" id="11_fdr4o"]
+[ext_resource type="Script" path="res://scripts/player/StatBarUI.cs" id="11_gpjl2"]
 [ext_resource type="Texture2D" uid="uid://b0bio7bcnovqw" path="res://art/ui/hp_slot_empty.png" id="11_n14lg"]
 [ext_resource type="FontFile" uid="uid://kl4cqble04qj" path="res://font/8-bit-hud.ttf" id="11_nwpp7"]
 [ext_resource type="Texture2D" uid="uid://cv8nohsgdcc71" path="res://art/ui/card_system_stack_slot_full.png" id="12_5sf1a"]
@@ -73,6 +75,35 @@ font_color = Color(0.816406, 0.453125, 0.253906, 1)
 
 [node name="World" type="Node2D"]
 
+[node name="Player" type="Node" parent="."]
+
+[node name="Stats" type="Node" parent="Player"]
+script = ExtResource("1_08ukl")
+maxHp = 7
+currentHp = 4
+maxShield = 6
+currentShield = 4
+maxEnergy = 7
+currentEnergy = 6
+
+[node name="ShipPlayer" type="Sprite2D" parent="Player"]
+position = Vector2(224, 305)
+texture = ExtResource("9_1ix8o")
+
+[node name="Enemy" type="Node" parent="."]
+
+[node name="Stats" type="Node" parent="Enemy"]
+script = ExtResource("1_08ukl")
+isPlayerStats = false
+maxHp = 8
+currentHp = 7
+maxShield = 5
+currentShield = 4
+
+[node name="ShipEnemy" type="Sprite2D" parent="Enemy"]
+position = Vector2(1056, 305)
+texture = ExtResource("8_6n542")
+
 [node name="Battle_FSM" type="Node" parent="."]
 script = ExtResource("1_r3p4o")
 initialState = NodePath("Battle_Start")
@@ -89,21 +120,10 @@ script = ExtResource("3_ae0w0")
 [node name="Battle_End" type="Node" parent="Battle_FSM"]
 script = ExtResource("5_yudvj")
 
-[node name="BaseCard" type="Node2D" parent="."]
-script = ExtResource("7_ojxeq")
-
 [node name="Background" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(640, 360)
 texture = ExtResource("7_o2pr1")
-
-[node name="ShipPlayer" type="Sprite2D" parent="."]
-position = Vector2(224, 305)
-texture = ExtResource("9_1ix8o")
-
-[node name="ShipEnemy" type="Sprite2D" parent="."]
-position = Vector2(1056, 305)
-texture = ExtResource("8_6n542")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -121,6 +141,9 @@ offset_left = 148.0
 offset_top = 73.0
 offset_right = 158.0
 offset_bottom = 97.0
+script = ExtResource("11_gpjl2")
+hpSlotFill = ExtResource("10_qd86r")
+hpSlotEmpty = ExtResource("11_n14lg")
 
 [node name="HP slot" type="TextureRect" parent="CanvasLayer/Control/Player HP"]
 layout_mode = 2
@@ -182,14 +205,74 @@ texture = ExtResource("10_qd86r")
 layout_mode = 2
 texture = ExtResource("11_n14lg")
 
+[node name="HP slot16" type="TextureRect" parent="CanvasLayer/Control/Player HP"]
+layout_mode = 2
+texture = ExtResource("11_n14lg")
+
+[node name="HP slot17" type="TextureRect" parent="CanvasLayer/Control/Player HP"]
+layout_mode = 2
+texture = ExtResource("11_n14lg")
+
+[node name="HP slot18" type="TextureRect" parent="CanvasLayer/Control/Player HP"]
+layout_mode = 2
+texture = ExtResource("11_n14lg")
+
+[node name="HP slot19" type="TextureRect" parent="CanvasLayer/Control/Player HP"]
+layout_mode = 2
+texture = ExtResource("11_n14lg")
+
+[node name="HP slot20" type="TextureRect" parent="CanvasLayer/Control/Player HP"]
+layout_mode = 2
+texture = ExtResource("11_n14lg")
+
 [node name="Player Shield" type="HBoxContainer" parent="CanvasLayer/Control"]
 layout_mode = 0
 offset_left = 146.0
 offset_top = 107.0
 offset_right = 212.0
 offset_bottom = 117.0
+script = ExtResource("11_gpjl2")
+uiField = 1
+hpSlotFill = ExtResource("12_ams4y")
+hpSlotEmpty = ExtResource("13_nqgjh")
 
 [node name="Shield slot" type="TextureRect" parent="CanvasLayer/Control/Player Shield"]
+layout_mode = 2
+texture = ExtResource("12_ams4y")
+
+[node name="Shield slot6" type="TextureRect" parent="CanvasLayer/Control/Player Shield"]
+layout_mode = 2
+texture = ExtResource("12_ams4y")
+
+[node name="Shield slot7" type="TextureRect" parent="CanvasLayer/Control/Player Shield"]
+layout_mode = 2
+texture = ExtResource("12_ams4y")
+
+[node name="Shield slot8" type="TextureRect" parent="CanvasLayer/Control/Player Shield"]
+layout_mode = 2
+texture = ExtResource("12_ams4y")
+
+[node name="Shield slot9" type="TextureRect" parent="CanvasLayer/Control/Player Shield"]
+layout_mode = 2
+texture = ExtResource("12_ams4y")
+
+[node name="Shield slot10" type="TextureRect" parent="CanvasLayer/Control/Player Shield"]
+layout_mode = 2
+texture = ExtResource("12_ams4y")
+
+[node name="Shield slot11" type="TextureRect" parent="CanvasLayer/Control/Player Shield"]
+layout_mode = 2
+texture = ExtResource("12_ams4y")
+
+[node name="Shield slot12" type="TextureRect" parent="CanvasLayer/Control/Player Shield"]
+layout_mode = 2
+texture = ExtResource("12_ams4y")
+
+[node name="Shield slot13" type="TextureRect" parent="CanvasLayer/Control/Player Shield"]
+layout_mode = 2
+texture = ExtResource("12_ams4y")
+
+[node name="Shield slot14" type="TextureRect" parent="CanvasLayer/Control/Player Shield"]
 layout_mode = 2
 texture = ExtResource("12_ams4y")
 
@@ -215,6 +298,10 @@ offset_left = 956.0
 offset_top = 73.0
 offset_right = 1092.0
 offset_bottom = 97.0
+script = ExtResource("11_gpjl2")
+isPlayerUI = false
+hpSlotFill = ExtResource("10_qd86r")
+hpSlotEmpty = ExtResource("11_n14lg")
 
 [node name="HP slot" type="TextureRect" parent="CanvasLayer/Control/Enemy HP"]
 layout_mode = 2
@@ -256,12 +343,57 @@ texture = ExtResource("11_n14lg")
 layout_mode = 2
 texture = ExtResource("11_n14lg")
 
+[node name="HP slot11" type="TextureRect" parent="CanvasLayer/Control/Enemy HP"]
+layout_mode = 2
+texture = ExtResource("11_n14lg")
+
+[node name="HP slot12" type="TextureRect" parent="CanvasLayer/Control/Enemy HP"]
+layout_mode = 2
+texture = ExtResource("11_n14lg")
+
+[node name="HP slot13" type="TextureRect" parent="CanvasLayer/Control/Enemy HP"]
+layout_mode = 2
+texture = ExtResource("11_n14lg")
+
+[node name="HP slot14" type="TextureRect" parent="CanvasLayer/Control/Enemy HP"]
+layout_mode = 2
+texture = ExtResource("11_n14lg")
+
+[node name="HP slot15" type="TextureRect" parent="CanvasLayer/Control/Enemy HP"]
+layout_mode = 2
+texture = ExtResource("11_n14lg")
+
+[node name="HP slot16" type="TextureRect" parent="CanvasLayer/Control/Enemy HP"]
+layout_mode = 2
+texture = ExtResource("11_n14lg")
+
+[node name="HP slot17" type="TextureRect" parent="CanvasLayer/Control/Enemy HP"]
+layout_mode = 2
+texture = ExtResource("11_n14lg")
+
+[node name="HP slot18" type="TextureRect" parent="CanvasLayer/Control/Enemy HP"]
+layout_mode = 2
+texture = ExtResource("11_n14lg")
+
+[node name="HP slot19" type="TextureRect" parent="CanvasLayer/Control/Enemy HP"]
+layout_mode = 2
+texture = ExtResource("11_n14lg")
+
+[node name="HP slot20" type="TextureRect" parent="CanvasLayer/Control/Enemy HP"]
+layout_mode = 2
+texture = ExtResource("11_n14lg")
+
 [node name="Enemy Shield" type="HBoxContainer" parent="CanvasLayer/Control"]
 layout_mode = 0
 offset_left = 954.0
 offset_top = 107.0
 offset_right = 992.0
 offset_bottom = 117.0
+script = ExtResource("11_gpjl2")
+uiField = 1
+isPlayerUI = false
+hpSlotFill = ExtResource("12_ams4y")
+hpSlotEmpty = ExtResource("13_nqgjh")
 
 [node name="Shield slot" type="TextureRect" parent="CanvasLayer/Control/Enemy Shield"]
 layout_mode = 2
@@ -272,6 +404,50 @@ layout_mode = 2
 texture = ExtResource("12_ams4y")
 
 [node name="Shield slot3" type="TextureRect" parent="CanvasLayer/Control/Enemy Shield"]
+layout_mode = 2
+texture = ExtResource("12_ams4y")
+
+[node name="Shield slot4" type="TextureRect" parent="CanvasLayer/Control/Enemy Shield"]
+layout_mode = 2
+texture = ExtResource("12_ams4y")
+
+[node name="Shield slot5" type="TextureRect" parent="CanvasLayer/Control/Enemy Shield"]
+layout_mode = 2
+texture = ExtResource("12_ams4y")
+
+[node name="Shield slot6" type="TextureRect" parent="CanvasLayer/Control/Enemy Shield"]
+layout_mode = 2
+texture = ExtResource("12_ams4y")
+
+[node name="Shield slot7" type="TextureRect" parent="CanvasLayer/Control/Enemy Shield"]
+layout_mode = 2
+texture = ExtResource("12_ams4y")
+
+[node name="Shield slot8" type="TextureRect" parent="CanvasLayer/Control/Enemy Shield"]
+layout_mode = 2
+texture = ExtResource("12_ams4y")
+
+[node name="Shield slot9" type="TextureRect" parent="CanvasLayer/Control/Enemy Shield"]
+layout_mode = 2
+texture = ExtResource("12_ams4y")
+
+[node name="Shield slot10" type="TextureRect" parent="CanvasLayer/Control/Enemy Shield"]
+layout_mode = 2
+texture = ExtResource("12_ams4y")
+
+[node name="Shield slot11" type="TextureRect" parent="CanvasLayer/Control/Enemy Shield"]
+layout_mode = 2
+texture = ExtResource("12_ams4y")
+
+[node name="Shield slot12" type="TextureRect" parent="CanvasLayer/Control/Enemy Shield"]
+layout_mode = 2
+texture = ExtResource("12_ams4y")
+
+[node name="Shield slot13" type="TextureRect" parent="CanvasLayer/Control/Enemy Shield"]
+layout_mode = 2
+texture = ExtResource("12_ams4y")
+
+[node name="Shield slot14" type="TextureRect" parent="CanvasLayer/Control/Enemy Shield"]
 layout_mode = 2
 texture = ExtResource("12_ams4y")
 
@@ -679,6 +855,10 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/separation = 8
 alignment = 2
+script = ExtResource("11_gpjl2")
+uiField = 2
+hpSlotFill = ExtResource("32_6fgl3")
+hpSlotEmpty = ExtResource("32_3cofy")
 
 [node name="Energy Charge" type="TextureRect" parent="CanvasLayer/Control/Energy/VBoxContainer"]
 layout_mode = 2
@@ -705,6 +885,34 @@ layout_mode = 2
 texture = ExtResource("32_6fgl3")
 
 [node name="Energy Charge7" type="TextureRect" parent="CanvasLayer/Control/Energy/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("32_6fgl3")
+
+[node name="Energy Charge8" type="TextureRect" parent="CanvasLayer/Control/Energy/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("32_6fgl3")
+
+[node name="Energy Charge9" type="TextureRect" parent="CanvasLayer/Control/Energy/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("32_6fgl3")
+
+[node name="Energy Charge10" type="TextureRect" parent="CanvasLayer/Control/Energy/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("32_6fgl3")
+
+[node name="Energy Charge11" type="TextureRect" parent="CanvasLayer/Control/Energy/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("32_6fgl3")
+
+[node name="Energy Charge12" type="TextureRect" parent="CanvasLayer/Control/Energy/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("32_6fgl3")
+
+[node name="Energy Charge13" type="TextureRect" parent="CanvasLayer/Control/Energy/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("32_6fgl3")
+
+[node name="Energy Charge14" type="TextureRect" parent="CanvasLayer/Control/Energy/VBoxContainer"]
 layout_mode = 2
 texture = ExtResource("32_6fgl3")
 

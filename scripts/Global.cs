@@ -5,6 +5,8 @@ public static class Global
 {
 	public static SelectedSystemCard selectedSystemCard = null;
 	public static SelectedCrewCard selectedCrewCard = null;
+	public static Stats playerStats = null;
+	public static Stats enemyStats = null;
 	public static class Enums 
 	{
 		public enum CardType

@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1699885677
+::res://::1699895809
 icon.svg::CompressedTexture2D::7778635517078960427::1698667311::1698667316::1::::<><>::
 README.md::TextFile::-1::1698920923::0::1::::<><>::
 ::res://art/::1699523608
@@ -95,11 +95,11 @@ _mockup.png::CompressedTexture2D::5946359595378685466::1699523592::1699523592::1
 04B_03__.TTF::FontFile::6063748791936667754::1699441645::1699441645::1::::<><>::
 8-bit-hud.ttf::FontFile::726361798477577029::1699441657::1699441657::1::::<><>::
 ::res://pref/::1699837247
-crew_card_base.tscn::PackedScene::6030261148032451995::1699837247::0::1::::<><>::uid://c2k3lq6hc2gov::::res://art/ui/card_crew_frame.png<>res://scripts/cards/DragAndDropCrewCard.cs<>res://scripts/cards/CrewCardBase.cs<>res://scripts/cards/CrewCardUI.cs<>uid://hej4jfmwn4ng::::res://art/ui/card_crew_icon_attack_2.png<>uid://di5qiefgp3s0h::::res://art/ui/card_crew_icon_attack_5.png<>uid://csnlb6rxnvx43::::res://font/04B_03__.TTF
-::res://scene/::1699837325
-world.tscn::PackedScene::6247099734575874706::1699837325::0::1::::<><>::res://scripts/fsm/StateMashine.cs<>res://scripts/fsm/PlayerTurnState.cs<>res://scripts/fsm/BattleStartState.cs<>res://scripts/fsm/EnemyTurnState.cs<>res://scripts/fsm/BattleEndState.cs<>uid://blr6yf63fq5fa::::res://art/background.png<>res://scripts/cards/CardBase.cs<>uid://fc22noq4jpev::::res://art/ship_enemy.png<>uid://buv5bw08vfjrp::::res://art/ship_player.png<>res://scripts/cards/CardUI.cs<>uid://doqnbpw2qu0bg::::res://art/ui/card_system_energy_frame.png<>uid://cxe3t2yq14o7q::::res://art/ui/tooltip_header_attack.png<>res://scripts/cards/SelectedSystemCard.cs<>uid://7fkj8bft2ghv::::res://art/ui/card_system_stack_slot_emptyl.png<>res://scripts/Tooltip.cs<>uid://ba15xjaw5q3yn::::res://art/ui/tooltip_middle.png<>uid://c4s3bf3e6vieg::::res://art/ui/card_system_icon_laser_1.png<>uid://kl4cqble04qj::::res://font/8-bit-hud.ttf<>uid://cv8nohsgdcc71::::res://art/ui/card_system_stack_slot_full.png<>uid://becriaq6lju63::::res://art/ui/icon_card_type_drone.png<>uid://llyfdtwtg0ju::::res://art/ui/tooltip_bottom.png<>uid://cycjrky3n5rai::::res://art/ui/card_system_header_attack.png<>uid://csnlb6rxnvx43::::res://font/04B_03__.TTF<>uid://bwt44puk3xyko::::res://art/ui/card_system_header_defence.png<>uid://ky12m75il7v4::::res://art/ui/card_system_frame_big.png<>uid://cbe0bge881vex::::res://art/ui/card_system_icon_drone.png<>uid://ydj2exjnikeh::::res://art/ui/card_system_header_drone.png<>uid://b3wvxk04sctx3::::res://art/ui/card_system_frame_small.png<>uid://b6fckj81c3w4x::::res://art/_mockup.png<>uid://cr6drxhcfxt3p::::res://pref/crew_card_base.tscn<>res://scripts/cards/SelectedCrewCard.cs
-::res://scripts/::1699836734
-Global.cs::CSharpScript::-1::1699836084::0::1::::<><>::
+crew_card_base.tscn::PackedScene::6030261148032451995::1699837247::0::1::::<><>::uid://c2k3lq6hc2gov
+::res://scene/::1699895828
+world.tscn::PackedScene::6247099734575874706::1699895872::0::1::::<><>::res://scripts/player/Stats.cs<>res://scripts/fsm/StateMashine.cs<>res://scripts/fsm/PlayerTurnState.cs<>res://scripts/fsm/BattleStartState.cs<>res://scripts/fsm/EnemyTurnState.cs<>res://scripts/fsm/BattleEndState.cs<>uid://blr6yf63fq5fa::::res://art/background.png<>res://scripts/cards/CardBase.cs<>uid://fc22noq4jpev::::res://art/ship_enemy.png<>uid://buv5bw08vfjrp::::res://art/ship_player.png<>res://scripts/cards/CardUI.cs<>uid://doqnbpw2qu0bg::::res://art/ui/card_system_energy_frame.png<>uid://cxe3t2yq14o7q::::res://art/ui/tooltip_header_attack.png<>res://scripts/cards/SelectedSystemCard.cs<>uid://bvj520pmult5s::::res://art/ui/hp_slot_full.png<>uid://7fkj8bft2ghv::::res://art/ui/card_system_stack_slot_emptyl.png<>res://scripts/Tooltip.cs<>uid://ba15xjaw5q3yn::::res://art/ui/tooltip_middle.png<>uid://c4s3bf3e6vieg::::res://art/ui/card_system_icon_laser_1.png<>uid://b0bio7bcnovqw::::res://art/ui/hp_slot_empty.png<>uid://kl4cqble04qj::::res://font/8-bit-hud.ttf<>res://scripts/player/StatBar.cs<>uid://cv8nohsgdcc71::::res://art/ui/card_system_stack_slot_full.png<>uid://ctx3w5r4ra53t::::res://art/ui/shield_slot_full.png<>uid://becriaq6lju63::::res://art/ui/icon_card_type_drone.png<>uid://llyfdtwtg0ju::::res://art/ui/tooltip_bottom.png<>uid://cycjrky3n5rai::::res://art/ui/card_system_header_attack.png<>uid://cfxoyydl0l0fv::::res://art/ui/shield_slot_empty.png<>uid://csnlb6rxnvx43::::res://font/04B_03__.TTF<>uid://bwt44puk3xyko::::res://art/ui/card_system_header_defence.png<>uid://ky12m75il7v4::::res://art/ui/card_system_frame_big.png<>uid://cbe0bge881vex::::res://art/ui/card_system_icon_drone.png<>uid://ydj2exjnikeh::::res://art/ui/card_system_header_drone.png<>uid://b3wvxk04sctx3::::res://art/ui/card_system_frame_small.png<>uid://b6fckj81c3w4x::::res://art/_mockup.png<>uid://cr6drxhcfxt3p::::res://pref/crew_card_base.tscn<>res://scripts/cards/SelectedCrewCard.cs<>uid://b4royiyoov2pm::::res://art/ui/energy_frame.png<>uid://50kdv85hg0r5::::res://art/ui/energy_slot_empty.png<>uid://bxi7k6nwcwuwv::::res://art/ui/energy_slot_full.png<>uid://bwfyfqvis1a4r::::res://art/ui/button_end_turn_active.png<>uid://ch7cpgop050xo::::res://art/ui/button_map.png<>uid://boacl7e3ku6e1::::res://art/ui/button_card_deck.png<>uid://iywh5krjk1h::::res://art/ui/button_settings.png<>uid://nnxpdfaintqk::::res://art/ui/button_ship_inventory.png
+::res://scripts/::1699894787
+Global.cs::CSharpScript::-1::1699894787::0::1::::<><>::
 Tooltip.cs::CSharpScript::-1::1699836734::0::1::::<><>::
 ::res://scripts/cards/::1699837211
 CardBase.cs::CSharpScript::-1::1699700136::0::1::::<><>::
@@ -116,3 +116,6 @@ EnemyTurnState.cs::CSharpScript::-1::1698857607::0::1::::<><>::
 PlayerTurnState.cs::CSharpScript::-1::1698857904::0::1::::<><>::
 State.cs::CSharpScript::-1::1698749127::0::1::::<><>::
 StateMashine.cs::CSharpScript::-1::1698749701::0::1::::<><>::
+::res://scripts/player/::1699895859
+StatBar.cs::CSharpScript::-1::1699895859::0::1::::<><>::
+Stats.cs::CSharpScript::-1::1699895595::0::1::::<><>::
