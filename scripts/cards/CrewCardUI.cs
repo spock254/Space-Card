@@ -19,5 +19,17 @@ public partial class CrewCardUI : Node
 		energyCost.Text = crewCard.GetEnergyCost().ToString();
 		icon.Texture = crewCard.GetIcon();
 	}
+
+	void OnMouseEntered() 
+	{
+		//GD.Print("ENTER");
+		Global.selectedCrewCard.SetSelectedCrewCard(GetParent<TextureRect>());
+	}
+
+    void OnMouseExited()
+    {
+		Global.selectedCrewCard.SetSelectedCrewCard(null);
+
+    }
 }
 

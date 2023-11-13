@@ -11,4 +11,6 @@ res://scripts/fsm/EnemyTurnState.cs
 res://scripts/fsm/PlayerTurnState.cs
 res://scripts/fsm/State.cs
 res://scripts/fsm/StateMashine.cs
+res://scripts/Tooltip.cs
+res://scripts/cards/SelectedCrewCard.cs
 res://pref/crew_card_base.tscn

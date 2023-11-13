@@ -40,3 +40,5 @@ text = "1"
 label_settings = SubResource("LabelSettings_08pd4")
 
 [connection signal="gui_input" from="." to="." method="OnGuiInput"]
+[connection signal="mouse_entered" from="." to="Crew Card UI" method="OnMouseEntered"]
+[connection signal="mouse_exited" from="." to="Crew Card UI" method="OnMouseExited"]

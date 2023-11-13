@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://cvae24277xr7w"]
+[gd_scene load_steps=38 format=3 uid="uid://cvae24277xr7w"]
 
 [ext_resource type="Script" path="res://scripts/fsm/StateMashine.cs" id="1_r3p4o"]
 [ext_resource type="Script" path="res://scripts/fsm/PlayerTurnState.cs" id="2_k4wg2"]
@@ -11,11 +11,16 @@
 [ext_resource type="Texture2D" uid="uid://buv5bw08vfjrp" path="res://art/ship_player.png" id="9_1ix8o"]
 [ext_resource type="Script" path="res://scripts/cards/CardUI.cs" id="10_5art6"]
 [ext_resource type="Texture2D" uid="uid://doqnbpw2qu0bg" path="res://art/ui/card_system_energy_frame.png" id="10_7bfeb"]
+[ext_resource type="Texture2D" uid="uid://cxe3t2yq14o7q" path="res://art/ui/tooltip_header_attack.png" id="10_30m37"]
 [ext_resource type="Script" path="res://scripts/cards/SelectedSystemCard.cs" id="10_jjche"]
 [ext_resource type="Texture2D" uid="uid://7fkj8bft2ghv" path="res://art/ui/card_system_stack_slot_emptyl.png" id="10_rgdgt"]
+[ext_resource type="Script" path="res://scripts/Tooltip.cs" id="11_7xwa4"]
+[ext_resource type="Texture2D" uid="uid://ba15xjaw5q3yn" path="res://art/ui/tooltip_middle.png" id="11_c4d7j"]
 [ext_resource type="Texture2D" uid="uid://c4s3bf3e6vieg" path="res://art/ui/card_system_icon_laser_1.png" id="11_fdr4o"]
 [ext_resource type="FontFile" uid="uid://kl4cqble04qj" path="res://font/8-bit-hud.ttf" id="11_nwpp7"]
 [ext_resource type="Texture2D" uid="uid://cv8nohsgdcc71" path="res://art/ui/card_system_stack_slot_full.png" id="12_5sf1a"]
+[ext_resource type="Texture2D" uid="uid://becriaq6lju63" path="res://art/ui/icon_card_type_drone.png" id="12_g7lh6"]
+[ext_resource type="Texture2D" uid="uid://llyfdtwtg0ju" path="res://art/ui/tooltip_bottom.png" id="12_j35mx"]
 [ext_resource type="Texture2D" uid="uid://cycjrky3n5rai" path="res://art/ui/card_system_header_attack.png" id="13_2ojp1"]
 [ext_resource type="FontFile" uid="uid://csnlb6rxnvx43" path="res://font/04B_03__.TTF" id="14_t458f"]
 [ext_resource type="Texture2D" uid="uid://bwt44puk3xyko" path="res://art/ui/card_system_header_defence.png" id="15_ifafq"]
@@ -25,6 +30,14 @@
 [ext_resource type="Texture2D" uid="uid://b3wvxk04sctx3" path="res://art/ui/card_system_frame_small.png" id="17_vgpsi"]
 [ext_resource type="Texture2D" uid="uid://b6fckj81c3w4x" path="res://art/_mockup.png" id="20_vwb5a"]
 [ext_resource type="PackedScene" uid="uid://cr6drxhcfxt3p" path="res://pref/crew_card_base.tscn" id="22_x5f3j"]
+[ext_resource type="Script" path="res://scripts/cards/SelectedCrewCard.cs" id="29_6566m"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_b1iuj"]
+font = ExtResource("14_t458f")
+
+[sub_resource type="LabelSettings" id="LabelSettings_2y7t2"]
+font = ExtResource("11_nwpp7")
+font_size = 5
 
 [sub_resource type="LabelSettings" id="LabelSettings_s2ox4"]
 line_spacing = 0.0
@@ -68,6 +81,7 @@ script = ExtResource("5_yudvj")
 script = ExtResource("7_ojxeq")
 
 [node name="Background" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(640, 360)
 texture = ExtResource("7_o2pr1")
 
@@ -88,6 +102,64 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Tooltip" type="TextureRect" parent="CanvasLayer/Control"]
+z_index = 1
+layout_mode = 0
+offset_left = 534.0
+offset_top = 410.0
+offset_right = 692.0
+offset_bottom = 450.0
+texture = ExtResource("10_30m37")
+script = ExtResource("11_7xwa4")
+offset = Vector2(0, 2)
+
+[node name="Name" type="Label" parent="CanvasLayer/Control/Tooltip"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 8.0
+offset_right = 120.0
+offset_bottom = 27.0
+text = "NAME"
+label_settings = SubResource("LabelSettings_b1iuj")
+horizontal_alignment = 1
+
+[node name="Card Small Icon" type="TextureRect" parent="CanvasLayer/Control/Tooltip"]
+layout_mode = 0
+offset_left = 133.0
+offset_top = 6.0
+offset_right = 152.0
+offset_bottom = 25.0
+texture = ExtResource("12_g7lh6")
+
+[node name="Tooltip Middle" type="TextureRect" parent="CanvasLayer/Control/Tooltip"]
+layout_mode = 2
+offset_top = 40.0
+offset_right = 158.0
+offset_bottom = 107.0
+texture = ExtResource("11_c4d7j")
+
+[node name="Tooltip Bottom" type="TextureRect" parent="CanvasLayer/Control/Tooltip/Tooltip Middle"]
+layout_mode = 2
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -79.0
+offset_right = 79.0
+offset_bottom = 12.0
+grow_horizontal = 2
+texture = ExtResource("12_j35mx")
+stretch_mode = 2
+
+[node name="Description" type="Label" parent="CanvasLayer/Control/Tooltip/Tooltip Middle"]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 6.0
+offset_right = 135.0
+offset_bottom = 17.0
+text = "some text "
+label_settings = SubResource("LabelSettings_2y7t2")
 
 [node name="System Panel" type="HBoxContainer" parent="CanvasLayer/Control"]
 layout_mode = 1
@@ -246,6 +318,144 @@ offset_bottom = 64.0
 texture = ExtResource("16_vsgil")
 stretch_mode = 2
 
+[node name="Card UI2" type="VBoxContainer" parent="CanvasLayer/Control/System Panel"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/separation = 4
+alignment = 2
+script = ExtResource("10_5art6")
+ocupatedCrewCardSlot = ExtResource("12_5sf1a")
+freeCrewCardSlot = ExtResource("10_rgdgt")
+attackTop = ExtResource("13_2ojp1")
+defenceTop = ExtResource("15_ifafq")
+systemTop = ExtResource("16_wll0b")
+
+[node name="Card" type="Node" parent="CanvasLayer/Control/System Panel/Card UI2"]
+script = ExtResource("7_ojxeq")
+name = "GUN"
+description = "+1 damage"
+energyCost = 2
+icon = ExtResource("11_fdr4o")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/System Panel/Card UI2"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/System Panel/Card UI2/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="Crew Card 1" type="TextureRect" parent="CanvasLayer/Control/System Panel/Card UI2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("10_rgdgt")
+stretch_mode = 5
+
+[node name="Crew Card 2" type="TextureRect" parent="CanvasLayer/Control/System Panel/Card UI2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("10_rgdgt")
+stretch_mode = 5
+
+[node name="Energy Frame" type="TextureRect" parent="CanvasLayer/Control/System Panel/Card UI2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("10_7bfeb")
+stretch_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/System Panel/Card UI2/VBoxContainer/HBoxContainer/Energy Frame"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 3.0
+offset_right = 21.0
+offset_bottom = 19.0
+text = "2
+"
+label_settings = SubResource("LabelSettings_s2ox4")
+metadata/_edit_use_anchors_ = true
+
+[node name="Crew Card 3" type="TextureRect" parent="CanvasLayer/Control/System Panel/Card UI2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("10_rgdgt")
+stretch_mode = 5
+
+[node name="Crew Card 4" type="TextureRect" parent="CanvasLayer/Control/System Panel/Card UI2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("10_rgdgt")
+stretch_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/System Panel/Card UI2/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("13_2ojp1")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/System Panel/Card UI2/VBoxContainer/TextureRect"]
+layout_mode = 0
+offset_top = 2.0
+offset_right = 124.0
+offset_bottom = 21.0
+text = "GFHDFH"
+label_settings = SubResource("LabelSettings_l8kk6")
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/System Panel/Card UI2"]
+visible = false
+layout_mode = 2
+texture = ExtResource("15_wfgls")
+stretch_mode = 3
+
+[node name="Icon" type="TextureRect" parent="CanvasLayer/Control/System Panel/Card UI2/TextureRect"]
+layout_mode = 0
+offset_right = 124.0
+offset_bottom = 64.0
+texture = ExtResource("16_vsgil")
+stretch_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/System Panel/Card UI2/TextureRect"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 67.0
+offset_right = 111.0
+offset_bottom = 144.0
+theme_override_constants/separation = 4
+
+[node name="System Description" type="Label" parent="CanvasLayer/Control/System Panel/Card UI2/TextureRect/VBoxContainer"]
+layout_mode = 2
+text = "Fdfsdfsdf Fdfg +4 sdfdfs"
+label_settings = SubResource("LabelSettings_apge7")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="System Description2" type="Label" parent="CanvasLayer/Control/System Panel/Card UI2/TextureRect/VBoxContainer"]
+layout_mode = 2
+text = "Fdfsdfsdf Fdfg"
+label_settings = SubResource("LabelSettings_28xre")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="System Description3" type="Label" parent="CanvasLayer/Control/System Panel/Card UI2/TextureRect/VBoxContainer"]
+layout_mode = 2
+text = "Fdfsdfsdf Fdfg"
+label_settings = SubResource("LabelSettings_28xre")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="System Description4" type="Label" parent="CanvasLayer/Control/System Panel/Card UI2/TextureRect/VBoxContainer"]
+layout_mode = 2
+text = "Fdfsdfsdf Fdfg"
+label_settings = SubResource("LabelSettings_28xre")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Control/System Panel/Card UI2"]
+layout_mode = 2
+texture = ExtResource("17_vgpsi")
+
+[node name="Icon" type="TextureRect" parent="CanvasLayer/Control/System Panel/Card UI2/TextureRect2"]
+layout_mode = 0
+offset_right = 124.0
+offset_bottom = 64.0
+texture = ExtResource("16_vsgil")
+stretch_mode = 2
+
 [node name="Crew Panel" type="HBoxContainer" parent="CanvasLayer/Control"]
 layout_mode = 1
 anchors_preset = 7
@@ -262,24 +472,26 @@ grow_vertical = 0
 theme_override_constants/separation = 8
 alignment = 1
 
+[node name="Selected Crew Card" type="Node" parent="CanvasLayer/Control/Crew Panel"]
+script = ExtResource("29_6566m")
+
 [node name="Crew Card UI" parent="CanvasLayer/Control/Crew Panel" instance=ExtResource("22_x5f3j")]
 layout_mode = 2
 
 [node name="Crew Card UI2" parent="CanvasLayer/Control/Crew Panel" instance=ExtResource("22_x5f3j")]
 layout_mode = 2
 
-[node name="Crew Card" parent="CanvasLayer/Control/Crew Panel/Crew Card UI2" index="0"]
-energyCost = 4
+[node name="Crew Card UI3" parent="CanvasLayer/Control/Crew Panel" instance=ExtResource("22_x5f3j")]
+layout_mode = 2
 
 [node name="Mockup" type="Sprite2D" parent="."]
-visible = false
 self_modulate = Color(1, 1, 1, 0.392157)
-position = Vector2(640, 360)
+position = Vector2(640, 359)
 texture = ExtResource("20_vwb5a")
 
 [connection signal="gui_input" from="CanvasLayer/Control/System Panel/Card UI" to="CanvasLayer/Control/System Panel/Card UI" method="OnGuiInput"]
 [connection signal="mouse_entered" from="CanvasLayer/Control/System Panel/Card UI" to="CanvasLayer/Control/System Panel/Card UI" method="OnMouseEntered"]
 [connection signal="mouse_exited" from="CanvasLayer/Control/System Panel/Card UI" to="CanvasLayer/Control/System Panel/Card UI" method="OnMouseExited"]
-
-[editable path="CanvasLayer/Control/Crew Panel/Crew Card UI"]
-[editable path="CanvasLayer/Control/Crew Panel/Crew Card UI2"]
+[connection signal="gui_input" from="CanvasLayer/Control/System Panel/Card UI2" to="CanvasLayer/Control/System Panel/Card UI2" method="OnGuiInput"]
+[connection signal="mouse_entered" from="CanvasLayer/Control/System Panel/Card UI2" to="CanvasLayer/Control/System Panel/Card UI2" method="OnMouseEntered"]
+[connection signal="mouse_exited" from="CanvasLayer/Control/System Panel/Card UI2" to="CanvasLayer/Control/System Panel/Card UI2" method="OnMouseExited"]

@@ -4,6 +4,7 @@ using System;
 public static class Global
 {
 	public static SelectedSystemCard selectedSystemCard = null;
+	public static SelectedCrewCard selectedCrewCard = null;
 	public static class Enums 
 	{
 		public enum CardType

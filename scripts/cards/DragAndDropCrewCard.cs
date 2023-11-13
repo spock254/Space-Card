@@ -43,7 +43,8 @@ public partial class DragAndDropCrewCard : TextureRect
                         ReturnToCrewCardPanel();
                         return;
                     }
-                    
+
+                    Global.selectedCrewCard.SetSelectedCrewCard(null);
                     Free();
                     
                 }
